@@ -1,7 +1,6 @@
-import mysql from "mysql";
-
-import { config } from "dotenv";
-config();
+import { Sequelize } from "sequelize";
+import env from "dotenv";
+env.config();
 const {
   DATABASE_HOST,
   DATABASE_USER,
@@ -10,18 +9,16 @@ const {
   DATABASE_PORT,
 } = process.env;
 
-const db = mysql.createPool({
+const sequelize = new Sequelize(DATABASE_DB, DATABASE_USER, DATABASE_PASSWORD, {
   host: DATABASE_HOST,
-  user: DATABASE_USER,
-  password: DATABASE_PASSWORD,
-  database: DATABASE_DB,
+  dialect: "mysql",
   port: DATABASE_PORT,
 });
-db.query("SELECT 1 + 1 AS solution", function (error, results, fields) {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log(`Database connection has been established.`);
-  }
-});
-export default db;
+
+try {
+  await sequelize.authenticate();
+  console.log("Connection has been established successfully.");
+} catch (error) {
+  console.error("Unable to connect to the database:", error);
+}
+export default sequelize;

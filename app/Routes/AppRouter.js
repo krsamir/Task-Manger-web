@@ -1,5 +1,5 @@
-import Appcontroller from "../Controller/AppController.js";
+import express from "express";
+const router = express.Router();
+import AppController from "../Controller/AppController.js";
 
-const appRoutes = (app) => {};
-
-export default appRoutes;
+export default router;

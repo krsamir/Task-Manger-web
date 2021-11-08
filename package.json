@@ -1,5 +1,5 @@
 {
-  "name": "issuesolver",
+  "name": "task-manager-app",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -10,21 +10,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/krsamir/issuesolver.git"
+    "url": "git+https://github.com/krsamir/Task-Manger-web.git"
   },
   "author": "Samir Kumar",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/krsamir/issuesolver/issues"
+    "url": "https://github.com/krsamir/Task-Manger-web/issues"
   },
-  "homepage": "https://github.com/krsamir/issuesolver#readme",
+  "homepage": "https://github.com/krsamir/Task-Manger-web#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "multer": "^1.4.2",
-    "mysql": "^2.18.1",
-    "nodemailer": "^6.6.3"
+    "mysql2": "^2.3.3-rc.0",
+    "nodemailer": "^6.6.3",
+    "sequelize": "^6.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
   }
 }
