@@ -1,0 +1,30 @@
+{
+  "name": "issuesolver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krsamir/issuesolver.git"
+  },
+  "author": "Samir Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krsamir/issuesolver/issues"
+  },
+  "homepage": "https://github.com/krsamir/issuesolver#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.2",
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.6.3"
+  }
+}
