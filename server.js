@@ -7,7 +7,7 @@ import AppRoutes from "./app/Routes/AppRouter.js";
 config();
 const { PORT } = process.env;
 const app = express();
-
+app.use(express.json());
 app.use("/auth", LoginRoutes);
 app.use("/api", AppRoutes);
 // to refer build pages

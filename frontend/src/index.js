@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import axios from "axios";
+import "react-toastify/dist/ReactToastify.css";
 axios.interceptors.request.use(
   function (config) {
     config.headers.Authorization = window.localStorage.getItem("sid");
