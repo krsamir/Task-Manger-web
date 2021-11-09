@@ -1,0 +1,36 @@
+.task {
+  margin: 30px;
+}
+.tasks {
+  margin-top: 25px;
+}
+.addTask {
+  padding: 7px 50px;
+  background-color: #007fff;
+  border: 1px solid #ededed;
+  margin-left: 10px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px 5px #ededed;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.remove {
+  background-color: #007fff;
+  border: 1px solid #ededed;
+  margin-left: 20px;
+  padding: 3px 15px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px #ededed;
+  border-radius: 5px;
+  color: white;
+}
+.input-elem {
+  border: none;
+  box-shadow: 10px 7px 4px 2px #ededed;
+  padding: 10px;
+  margin-bottom: 10px;
+  outline: none;
+  border-radius: 25px;
+}

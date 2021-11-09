@@ -10,11 +10,11 @@ import Task from "./app/Model/Task.js";
 //     console.log(e);
 //   });
 
-// Task.sync()
-//   .then(() => {
-//     console.log(`Task Model Synced`);
-//   })
-//   .catch((e) => {
-//     console.log(`Cannot Sync Task Model`);
-//     console.log(e);
-//   });
+Task.sync()
+  .then(() => {
+    console.log(`Task Model Synced`);
+  })
+  .catch((e) => {
+    console.log(`Cannot Sync Task Model`);
+    console.log(e);
+  });

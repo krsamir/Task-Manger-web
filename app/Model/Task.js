@@ -9,7 +9,9 @@ Task.init(
   {
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+    },
+    category: {
+      type: DataTypes.STRING,
     },
   },
   {
