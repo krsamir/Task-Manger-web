@@ -103,6 +103,9 @@ const Home = () => {
                 <button className="addTask" onClick={() => addSubTask(i)}>
                   +
                 </button>
+                <button className="addTask" onClick={() => RemoveTask(i)}>
+                  x
+                </button>
               </span>
               {_.subtasks.map((val, ind) => {
                 return (
