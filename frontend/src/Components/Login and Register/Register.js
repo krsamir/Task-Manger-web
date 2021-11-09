@@ -41,7 +41,6 @@ function CreateStudent(props) {
         .post("/auth/register", values)
         .then((res) => {
           const { status } = res.data;
-          console.log(status);
           if (status === 0) {
             // created
             props.successToast("User created successfully!!");

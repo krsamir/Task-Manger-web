@@ -31,7 +31,6 @@ function Login(props) {
         .post("/auth/login", values)
         .then((res) => {
           const data = res.data;
-          console.log(data);
           if (data.status === 0) {
             props.warningToast(data.message);
           } else if (data.status === 1) {

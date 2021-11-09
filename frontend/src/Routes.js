@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ProtectedRoute from "./Components/Authentication/Protected";
 import Login from "./Components/Login and Register/Login";
 import Register from "./Components/Login and Register/Register";
-import Home from "./Components/Layout/Home";
+import Tasks from "./Components/Layout/Tasks";
 
 function Routes() {
   return (
@@ -12,7 +12,7 @@ function Routes() {
         <Switch>
           <Route path="/login" exact component={Login} />
           <Route path="/register" exact component={Register} />
-          <ProtectedRoute path="/" exact component={Home} />
+          <ProtectedRoute path="/" exact component={Tasks} />
         </Switch>
       </Router>
     </div>
