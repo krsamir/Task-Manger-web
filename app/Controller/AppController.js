@@ -1,18 +1,29 @@
 import Task from "../Model/Task.js";
+import SubTask from "../Model/SubTask.js";
 const Data = {};
 
 Data.CreateTask = async (req, res) => {
-  const data = req.body
-    .map((val) => {
-      if (val.name === "") {
-        return null;
-      } else {
-        return { ...val, UserId: req.id };
-      }
-    })
-    .filter((_) => _ !== null);
+  const data = req.body;
+  // const data = req.body
+  //   .map((val) => {
+  //     if (val.name === "") {
+  //       return null;
+  //     } else {
+  //       return { ...val, UserId: req.id };
+  //     }
+  //   })
+  //   .filter((_) => _ !== null);
   try {
-    await Task.bulkCreate(data, { validate: true });
+    console.log(JSON.parse(JSON.stringify(data)));
+    await Task.bulkCreate(data, {
+      include: [
+        {
+          // association: SubTask,
+          include: [Task.Subtasks],
+        },
+      ],
+      validate: true,
+    });
     res.send({ status: 0, message: "Task Created" });
   } catch (error) {
     console.log(error);

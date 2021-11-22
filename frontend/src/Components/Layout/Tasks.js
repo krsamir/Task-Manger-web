@@ -46,17 +46,17 @@ const Home = () => {
   };
   const saveTask = () => {
     console.log(task);
-    // handleClick();
-    // axios
-    //   .post("/api/tasks", task)
-    //   .then((val) => {
-    //     console.log(val.data);
-    //     setmessage(val.data.message);
-    //     setTask([{ name: "" }]);
-    //   })
-    //   .catch((e) => {
-    //     console.log(e);
-    // });
+    handleClick();
+    axios
+      .post("/api/tasks", task)
+      .then((val) => {
+        console.log(val.data);
+        setmessage(val.data.message);
+        // setTask([{ name: "", subtasks: [{ task: "" }] }]);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
   const addSubTask = (index) => {
     console.log(index);
