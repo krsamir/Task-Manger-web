@@ -16,7 +16,7 @@ const validationSchema = yup.object({
     .string("Enter First Name")
     .required("First Name is required field")
     .matches(/^[a-zA-Z ]+$/, "Only alphabets allowed"),
-  lastname: yup
+  lastName: yup
     .string("Enter Last Name")
     .required("Last Name is required field")
     .matches(/^[a-zA-Z ]+$/, "Only alphabets allowed"),
@@ -31,7 +31,7 @@ function CreateStudent(props) {
   const formik = useFormik({
     initialValues: {
       firstName: "",
-      lastname: "",
+      lastName: "",
       email: "",
       password: "",
     },
@@ -84,18 +84,18 @@ function CreateStudent(props) {
             <Grid item xs={12} sm={12} md={6} lg={4}>
               <TextField
                 fullWidth
-                id="lastname"
-                name="lastname"
+                id="lastName"
+                name="lastName"
                 label="Last Name"
                 type="text"
                 // sx={{ width: "100%" }}
-                value={formik.values.lastname}
+                value={formik.values.lastName}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 error={
-                  formik.touched.lastname && Boolean(formik.errors.lastname)
+                  formik.touched.lastName && Boolean(formik.errors.lastName)
                 }
-                helperText={formik.touched.lastname && formik.errors.lastname}
+                helperText={formik.touched.lastName && formik.errors.lastName}
               />
             </Grid>
             <Grid item xs={12} sm={12} md={6} lg={4}>

@@ -1,25 +1,25 @@
 import Task from "../Model/Task.js";
-import SubTask from "../Model/SubTask.js";
+import Subtasks from "../Model/SubTask.js";
+import sequelize from "../DataBase/Database.js";
 const Data = {};
 
 Data.CreateTask = async (req, res) => {
-  const data = req.body;
-  // const data = req.body
-  //   .map((val) => {
-  //     if (val.name === "") {
-  //       return null;
-  //     } else {
-  //       return { ...val, UserId: req.id };
-  //     }
-  //   })
-  //   .filter((_) => _ !== null);
+  const data = req.body
+    .map((val) => {
+      if (val.name === "") {
+        return null;
+      } else {
+        return { ...val, UserId: req.id };
+      }
+    })
+    .filter((_) => _ !== null);
   try {
+    console.log(sequelize.models.Subtask);
     console.log(JSON.parse(JSON.stringify(data)));
     await Task.bulkCreate(data, {
       include: [
         {
-          // association: SubTask,
-          include: [Task.Subtasks],
+          association: Task.subtasks,
         },
       ],
       validate: true,
@@ -32,7 +32,10 @@ Data.CreateTask = async (req, res) => {
 };
 Data.getAllTask = async (req, res) => {
   try {
-    const data = await Task.findAll({ attributes: ["name"] });
+    const data = await Task.findAll({
+      attributes: ["name"],
+      include: Subtasks,
+    });
     res.send(data);
   } catch (error) {
     res.send(error);

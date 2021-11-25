@@ -20,11 +20,11 @@ import SubTask from "./app/Model/SubTask.js";
 //     console.log(e);
 //   });
 
-SubTask.sync({ force: true })
-  .then(() => {
-    console.log(`SubTask Model Synced`);
-  })
-  .catch((e) => {
-    console.log(`Cannot Sync SubTask Model`);
-    console.log(e);
-  });
+// SubTask.sync({ force: true })
+//   .then(() => {
+//     console.log(`SubTask Model Synced`);
+//   })
+//   .catch((e) => {
+//     console.log(`Cannot Sync SubTask Model`);
+//     console.log(e);
+//   });

@@ -3,17 +3,17 @@ import { Snackbar } from "@mui/material";
 import axios from "axios";
 import "./style.css";
 const Home = () => {
-  // useEffect(() => {
-  //   axios
-  //     .get("/api/tasks")
-  //     .then((val) => {
-  //       console.log(val.data);
-  //     })
-  //     .catch((e) => {
-  //       console.log(e);
-  //     });
-  // }, []);
-  const [task, setTask] = useState([{ name: "", subtasks: [{ task: "" }] }]);
+  useEffect(() => {
+    axios
+      .get("/api/tasks")
+      .then((val) => {
+        console.log(val.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, []);
+  const [task, setTask] = useState([{ name: "", Subtasks: [{ task: "" }] }]);
   const [open, setOpen] = useState(false);
   const [message, setmessage] = useState("");
 
@@ -31,12 +31,12 @@ const Home = () => {
   const addTask = () => {
     const val = [...task];
     console.log(val);
-    val.push({ name: "", subtasks: [{ task: "" }] });
+    val.push({ name: "", Subtasks: [{ task: "" }] });
     setTask(val);
   };
   const handleChange = (e, index, ind) => {
     const val = [...task];
-    val[index].subtasks[ind].task = e.target.value;
+    val[index].Subtasks[ind].task = e.target.value;
     setTask(val);
   };
   const RemoveTask = (i) => {
@@ -52,7 +52,7 @@ const Home = () => {
       .then((val) => {
         console.log(val.data);
         setmessage(val.data.message);
-        // setTask([{ name: "", subtasks: [{ task: "" }] }]);
+        setTask([{ name: "", Subtasks: [{ task: "" }] }]);
       })
       .catch((e) => {
         console.log(e);
@@ -61,13 +61,13 @@ const Home = () => {
   const addSubTask = (index) => {
     console.log(index);
     const val = [...task];
-    val[index].subtasks.push({ task: "" });
+    val[index].Subtasks.push({ task: "" });
     setTask(val);
   };
   const removeSubTask = (index, subIndex) => {
     console.log(index);
     const val = [...task];
-    val[index].subtasks.splice(subIndex, 1);
+    val[index].Subtasks.splice(subIndex, 1);
     setTask(val);
   };
   const handleTitleChange = (e, index) => {
@@ -75,8 +75,14 @@ const Home = () => {
     val[index].name = e.target.value;
     setTask(val);
   };
+
+  const handleLogout = () =>{
+    window.localStorage.clear();
+    window.location.reload();
+  }
   return (
     <div>
+      <div style={{float:'right'}}><button onClick={handleLogout}>Logout</button></div>
       <div className="task">
         Create Topics{" "}
         <span>
@@ -107,7 +113,7 @@ const Home = () => {
                   x
                 </button>
               </span>
-              {_.subtasks.map((val, ind) => {
+              {_.Subtasks.map((val, ind) => {
                 return (
                   <div key={ind} className="sub-task-block">
                     <input

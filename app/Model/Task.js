@@ -22,5 +22,5 @@ Task.init(
 );
 
 Task.belongsTo(User);
-Task.Subtasks = Task.hasMany(SubTasks);
+Task.subtasks = Task.hasMany(SubTasks);
 export default Task;
